@@ -16,3 +16,12 @@ DOCKER
 `sudo docker run --rm --volumes-from DATA -v $(pwd):/backup busybox tar cvf /backup/backup.tar /data`
 
 `docker ps -a -q |xargs docker stop; docker ps -a -q |xargs docker rm -fv; docker images -q |xargs docker rmi;`
+
+#### Remove containers base on newest
+`docker rm $(docker ps -aq |head -n 1)`
+
+#### Remove images base on newest
+`docker rmi $(docker images -q |head -n 1)`
+
+#### Remove untagged images
+`docker rmi $(docker images |grep \<none\> |awk '{print $3}')`
