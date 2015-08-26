@@ -30,14 +30,14 @@ end
 #### Chef 10
 `knife10 bootstrap <hostname> -r 'role[role1], role[staging], role[role2], role[ldap_auth_client]' -x root --bootstrap-version=10.26.0 -E <environment>`
 #### Chef 11
-`knife bootstrap <hostname> --run-list "role[event]" --environment <environment> --bootstrap-template chef-full --ssh-user root`
+`knife bootstrap <hostname> --run-list "role[event]" --environment <environment> --bootstrap-template chef-full --ssh-user root --bootstrap-version=11.18.6`
 
 #### Re-chef
 `knife ssh 'roles:event AND chef_environment:production_*' 'sudo DEPLOY=1 chef-client' -x <ldap_user> -C 3 -A`
 
 
 ## INFO
-#### Last deploy
+#### Last cheffed/deployed
 `knife status name:<nodename>`
 
 ## MANAGEMENT
