@@ -13,3 +13,17 @@ Bash
 
 #### repeat Curl and output response code
 `for i in {0..500}; do curl -sL -w "%{http_code}\n" "http://127.0.0.1:8084/healthcheck" -o /dev/null; sleep .5; done;`
+
+
+#### Bash opener
+[Bash style guide](https://github.com/progrium/bashstyle)
+```
+set -eux
+set -o pipefail
+
+
+set -e # Exit on failure
+set -u # Fail on accessing unassigned ENV vars
+set -x # Print out commands
+set -o pipefail # Fail on bad pipe commands (`dafsdfdsa |sed 'hi'` will pass because the pipe-output command succeeds)
+```
