@@ -25,3 +25,14 @@ DOCKER
 
 #### Remove untagged images
 `docker rmi $(docker images |grep \<none\> |awk '{print $3}')`
+
+## Docker-Machine
+
+### Swarm
+
+#### Create
+`docker-machine -D rm $HOSTNAME`
+`docker-machine -D create -d none --url "tcp://$HOSTNAME:2376" --swarm --swarm-master $HOSTNAME`
+
+#### Env
+`eval $(docker-machine env --swarm '$HOSTNAME')`
