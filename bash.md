@@ -7,6 +7,7 @@ Bash
 #### Find big files
 `sudo find / -type f -size +100000k -exec ls -lh {} \; | awk '{ print $9 ": " $5 }'`
 `sudo du -chs /*`
+`du --all --human-readable / |sort --human-numeric-sort --reverse | head -n 10`
 
 #### INode count by dir
 `for i in /*; do echo $i; find $i |wc -l; done`
